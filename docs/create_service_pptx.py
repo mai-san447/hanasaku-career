@@ -35,13 +35,13 @@ def add_title_slide(prs, title, subtitle=""):
     fill.solid()
     fill.fore_color.rgb = BRAND_DARK
 
-    left, top, width, height = Inches(0.8), Inches(1.5), Inches(8.4), Inches(2)
+    left, top, width, height = Inches(1.2), Inches(1.5), Inches(11), Inches(2.5)
     txBox = slide.shapes.add_textbox(left, top, width, height)
     tf = txBox.text_frame
     tf.word_wrap = True
     p = tf.paragraphs[0]
     p.text = title
-    p.font.size = Pt(32)
+    p.font.size = Pt(40)
     p.font.bold = True
     p.font.color.rgb = WHITE
     p.alignment = PP_ALIGN.LEFT
@@ -49,9 +49,10 @@ def add_title_slide(prs, title, subtitle=""):
     if subtitle:
         p2 = tf.add_paragraph()
         p2.text = subtitle
-        p2.font.size = Pt(16)
+        p2.font.size = Pt(20)
         p2.font.color.rgb = BRAND_SUBTITLE
         p2.alignment = PP_ALIGN.LEFT
+        p2.space_before = Pt(12)
     return slide
 
 
@@ -63,12 +64,12 @@ def add_section_slide(prs, title):
     fill.solid()
     fill.fore_color.rgb = BRAND_MID
 
-    left, top, width, height = Inches(0.8), Inches(2.5), Inches(8.4), Inches(1.5)
+    left, top, width, height = Inches(1.2), Inches(2.5), Inches(11), Inches(2)
     txBox = slide.shapes.add_textbox(left, top, width, height)
     tf = txBox.text_frame
     p = tf.paragraphs[0]
     p.text = title
-    p.font.size = Pt(28)
+    p.font.size = Pt(36)
     p.font.bold = True
     p.font.color.rgb = WHITE
     p.alignment = PP_ALIGN.CENTER
@@ -80,25 +81,24 @@ def add_content_slide(prs, title, bullets, note=""):
     slide = prs.slides.add_slide(prs.slide_layouts[6])
 
     # Title
-    left, top, width, height = Inches(0), Inches(0), Inches(10), Inches(1.0)
-    txBox = slide.shapes.add_textbox(left, top, width, height)
+    txBox = slide.shapes.add_textbox(Inches(0), Inches(0), Inches(13.333), Inches(1.1))
     tf = txBox.text_frame
     tf.word_wrap = True
     p = tf.paragraphs[0]
     p.text = "  " + title
-    p.font.size = Pt(22)
+    p.font.size = Pt(28)
     p.font.bold = True
     p.font.color.rgb = BRAND_DARK
     p.alignment = PP_ALIGN.LEFT
 
     # Underline
-    shape = slide.shapes.add_shape(1, Inches(0.5), Inches(0.95), Inches(9), Inches(0.03))
+    shape = slide.shapes.add_shape(1, Inches(0.8), Inches(1.05), Inches(11.7), Inches(0.03))
     shape.fill.solid()
     shape.fill.fore_color.rgb = BRAND_DARK
     shape.line.fill.background()
 
     # Content
-    txBox2 = slide.shapes.add_textbox(Inches(0.6), Inches(1.2), Inches(8.8), Inches(5.5))
+    txBox2 = slide.shapes.add_textbox(Inches(1.0), Inches(1.4), Inches(11.3), Inches(5.5))
     tf2 = txBox2.text_frame
     tf2.word_wrap = True
 
@@ -119,9 +119,9 @@ def add_content_slide(prs, title, bullets, note=""):
         text = re.sub(r'\[(.*?)\]', r'\1', text)
 
         p.text = text
-        p.font.size = Pt(14) if indent == 0 else Pt(12)
+        p.font.size = Pt(18) if indent == 0 else Pt(16)
         p.font.color.rgb = TEXT_MAIN
-        p.space_after = Pt(6)
+        p.space_after = Pt(8)
         p.level = indent
 
         if "◎" in bullet or "★" in bullet or bullet.strip().startswith("→"):
@@ -133,7 +133,7 @@ def add_content_slide(prs, title, bullets, note=""):
         p_note.text = ""
         p_note = tf2.add_paragraph()
         p_note.text = note
-        p_note.font.size = Pt(11)
+        p_note.font.size = Pt(14)
         p_note.font.italic = True
         p_note.font.color.rgb = TEXT_NOTE
 
@@ -145,16 +145,16 @@ def add_table_slide(prs, title, headers, rows):
     slide = prs.slides.add_slide(prs.slide_layouts[6])
 
     # Title
-    txBox = slide.shapes.add_textbox(Inches(0), Inches(0), Inches(10), Inches(1.0))
+    txBox = slide.shapes.add_textbox(Inches(0), Inches(0), Inches(13.333), Inches(1.1))
     tf = txBox.text_frame
     p = tf.paragraphs[0]
     p.text = "  " + title
-    p.font.size = Pt(22)
+    p.font.size = Pt(28)
     p.font.bold = True
     p.font.color.rgb = BRAND_DARK
 
     # Underline
-    shape = slide.shapes.add_shape(1, Inches(0.5), Inches(0.95), Inches(9), Inches(0.03))
+    shape = slide.shapes.add_shape(1, Inches(0.8), Inches(1.05), Inches(11.7), Inches(0.03))
     shape.fill.solid()
     shape.fill.fore_color.rgb = BRAND_DARK
     shape.line.fill.background()
@@ -162,11 +162,11 @@ def add_table_slide(prs, title, headers, rows):
     # Table
     num_rows = len(rows) + 1
     num_cols = len(headers)
-    table_width = Inches(9)
+    table_width = Inches(11.7)
 
     table_shape = slide.shapes.add_table(
-        num_rows, num_cols, Inches(0.5), Inches(1.3),
-        table_width, Inches(0.4 * min(num_rows, 12))
+        num_rows, num_cols, Inches(0.8), Inches(1.4),
+        table_width, Inches(0.5 * min(num_rows, 12))
     )
     table = table_shape.table
 
@@ -175,7 +175,7 @@ def add_table_slide(prs, title, headers, rows):
         cell = table.cell(0, j)
         cell.text = re.sub(r'\*\*(.*?)\*\*', r'\1', header)
         for paragraph in cell.text_frame.paragraphs:
-            paragraph.font.size = Pt(11)
+            paragraph.font.size = Pt(14)
             paragraph.font.bold = True
             paragraph.font.color.rgb = WHITE
         cell.fill.solid()
@@ -188,7 +188,7 @@ def add_table_slide(prs, title, headers, rows):
                 cell = table.cell(i + 1, j)
                 cell.text = re.sub(r'\*\*(.*?)\*\*', r'\1', str(val))
                 for paragraph in cell.text_frame.paragraphs:
-                    paragraph.font.size = Pt(10)
+                    paragraph.font.size = Pt(13)
                     paragraph.font.color.rgb = TEXT_MAIN
                 if i % 2 == 0:
                     cell.fill.solid()
@@ -203,7 +203,7 @@ def add_table_slide(prs, title, headers, rows):
 
 def create_presentation():
     prs = Presentation()
-    prs.slide_width = Inches(10)
+    prs.slide_width = Inches(13.333)
     prs.slide_height = Inches(7.5)
 
     # --- 表紙 ---
@@ -284,16 +284,16 @@ def create_presentation():
 
     # 注記を手動追加
     slide = prs.slides[-1]
-    txBox = slide.shapes.add_textbox(Inches(0.6), Inches(3.5), Inches(8.8), Inches(1.5))
+    txBox = slide.shapes.add_textbox(Inches(1.0), Inches(4.0), Inches(11.3), Inches(1.5))
     tf = txBox.text_frame
     tf.word_wrap = True
     for i, text in enumerate(["初回面談は無料", "お友達紹介で、紹介した方・された方どちらも次回1,000円OFF"]):
         p = tf.paragraphs[0] if i == 0 else tf.add_paragraph()
         p.text = "★ " + text
-        p.font.size = Pt(13)
+        p.font.size = Pt(18)
         p.font.bold = True
         p.font.color.rgb = BRAND_DARK
-        p.space_after = Pt(8)
+        p.space_after = Pt(10)
 
     # --- 競合比較 ---
     add_table_slide(prs,
@@ -340,7 +340,7 @@ def create_presentation():
     # --- お問い合わせ（セクションスライドで締め） ---
     slide = add_section_slide(prs, "まずは無料で相談してみませんか？")
     # 追加テキスト
-    txBox = slide.shapes.add_textbox(Inches(0.8), Inches(4.0), Inches(8.4), Inches(2.5))
+    txBox = slide.shapes.add_textbox(Inches(1.2), Inches(4.0), Inches(11), Inches(3.0))
     tf = txBox.text_frame
     tf.word_wrap = True
     contacts = [
@@ -353,10 +353,10 @@ def create_presentation():
     for i, text in enumerate(contacts):
         p = tf.paragraphs[0] if i == 0 else tf.add_paragraph()
         p.text = text
-        p.font.size = Pt(14) if i < 3 else Pt(11)
+        p.font.size = Pt(18) if i < 3 else Pt(14)
         p.font.color.rgb = BRAND_SUBTITLE if i < 3 else TEXT_NOTE
         p.alignment = PP_ALIGN.CENTER
-        p.space_after = Pt(8)
+        p.space_after = Pt(12)
 
     # Save
     output_dir = os.path.dirname(os.path.abspath(__file__))
