@@ -1,0 +1,1147 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="ハナサク｜福井の女の子が、自分の言葉で未来を語れるようになる就活伴走サービス。社外メンター経験を持つ福井出身コーチが、面接対策から親御さんへの進捗レポートまで。">
+    <meta property="og:title" content="ハナサク｜福井の女子学生のための就活伴走コーチング">
+    <meta property="og:description" content="福井出身・東京在住の社外メンター経験者が、あなたの就活を月1回のオンライン面談で伴走します。親御さんへの進捗レポート付き。">
+    <meta property="og:type" content="website">
+    <meta name="twitter:card" content="summary_large_image">
+    <title>ハナサク｜福井の女子学生のための就活伴走コーチング</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700;900&family=Zen+Maru+Gothic:wght@400;500;700&display=swap" rel="stylesheet">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
+
+        body {
+            font-family: 'Noto Sans JP', sans-serif;
+            background: #fff;
+            color: #3a3a3a;
+            line-height: 1.9;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        img { display: block; max-width: 100%; }
+        a { color: inherit; }
+
+        /* --- colors --- */
+        :root {
+            --primary: #c06070;
+            --primary-light: #f5e6ea;
+            --primary-dark: #9a4050;
+            --accent: #e8a0a8;
+            --bg-warm: #fdf8f6;
+            --bg-section: #faf5f3;
+            --text: #3a3a3a;
+            --text-light: #888;
+            --border: #ecddd8;
+        }
+
+        /* --- header --- */
+        .header {
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            background: rgba(255,255,255,.95);
+            backdrop-filter: blur(8px);
+            border-bottom: 1px solid var(--border);
+        }
+
+        .header-inner {
+            max-width: 960px;
+            margin: 0 auto;
+            padding: 0 1.5rem;
+            height: 56px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .header-logo {
+            font-family: 'Zen Maru Gothic', sans-serif;
+            font-size: 1rem;
+            font-weight: 700;
+            text-decoration: none;
+            color: var(--primary);
+        }
+
+        .header-nav { display: flex; gap: 1.5rem; align-items: center; }
+
+        .header-nav a {
+            font-size: .78rem;
+            color: #666;
+            text-decoration: none;
+            transition: color .2s;
+        }
+
+        .header-nav a:hover { color: var(--primary); }
+
+        .header-cta {
+            display: inline-block;
+            padding: .4rem 1.2rem;
+            font-size: .75rem;
+            font-weight: 700;
+            color: #fff;
+            background: var(--primary);
+            border-radius: 20px;
+            text-decoration: none;
+            transition: opacity .2s;
+        }
+
+        .header-cta:hover { opacity: .85; }
+
+        .ham { display: none; background: none; border: none; cursor: pointer; padding: 4px; }
+        .ham span { display: block; width: 20px; height: 2px; background: #333; margin: 4px 0; transition: .2s; }
+
+        /* --- container --- */
+        .container {
+            max-width: 960px;
+            margin: 0 auto;
+            padding: 0 1.5rem;
+        }
+
+        /* --- hero --- */
+        .hero {
+            padding: 5rem 0 4rem;
+            background: linear-gradient(135deg, var(--bg-warm) 0%, #fff 50%, var(--primary-light) 100%);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: -60px;
+            right: -60px;
+            width: 300px;
+            height: 300px;
+            border-radius: 50%;
+            background: var(--primary-light);
+            opacity: .4;
+        }
+
+        .hero-inner {
+            position: relative;
+            text-align: center;
+        }
+
+        .hero-badge {
+            display: inline-block;
+            font-size: .72rem;
+            font-weight: 700;
+            color: var(--primary);
+            background: var(--primary-light);
+            padding: .3rem 1rem;
+            border-radius: 20px;
+            margin-bottom: 1.5rem;
+        }
+
+        .hero-title {
+            font-family: 'Zen Maru Gothic', sans-serif;
+            font-size: 2rem;
+            font-weight: 700;
+            line-height: 1.6;
+            margin-bottom: 1.2rem;
+            color: var(--text);
+        }
+
+        .hero-title em {
+            font-style: normal;
+            color: var(--primary);
+        }
+
+        .hero-desc {
+            font-size: .9rem;
+            color: var(--text-light);
+            line-height: 2;
+            margin-bottom: 2rem;
+            max-width: 560px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .hero-cta {
+            display: inline-block;
+            padding: .9rem 2.5rem;
+            font-size: .9rem;
+            font-weight: 700;
+            color: #fff;
+            background: var(--primary);
+            border-radius: 30px;
+            text-decoration: none;
+            transition: transform .2s, box-shadow .2s;
+            box-shadow: 0 4px 16px rgba(192,96,112,.3);
+        }
+
+        .hero-cta:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 24px rgba(192,96,112,.4);
+        }
+
+        .hero-sub {
+            font-size: .75rem;
+            color: var(--text-light);
+            margin-top: .8rem;
+        }
+
+        /* --- section common --- */
+        .section {
+            padding: 5rem 0;
+        }
+
+        .section-alt {
+            background: var(--bg-section);
+        }
+
+        .section-label {
+            font-size: .7rem;
+            font-weight: 700;
+            color: var(--primary);
+            text-transform: uppercase;
+            letter-spacing: .1em;
+            margin-bottom: .4rem;
+            text-align: center;
+        }
+
+        .section-title {
+            font-family: 'Zen Maru Gothic', sans-serif;
+            font-size: 1.4rem;
+            font-weight: 700;
+            text-align: center;
+            margin-bottom: .6rem;
+        }
+
+        .section-desc {
+            font-size: .85rem;
+            color: var(--text-light);
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        /* --- pain points --- */
+        .pain-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.5rem;
+        }
+
+        .pain-card {
+            padding: 1.8rem;
+            background: #fff;
+            border: 1px solid var(--border);
+            border-radius: 12px;
+        }
+
+        .pain-card-who {
+            display: inline-block;
+            font-size: .68rem;
+            font-weight: 700;
+            padding: .2rem .7rem;
+            border-radius: 4px;
+            margin-bottom: .8rem;
+        }
+
+        .pain-card-who.student {
+            color: var(--primary);
+            background: var(--primary-light);
+        }
+
+        .pain-card-who.parent {
+            color: #5a7a6a;
+            background: #e6f0ea;
+        }
+
+        .pain-card-title {
+            font-size: .95rem;
+            font-weight: 700;
+            margin-bottom: .5rem;
+            line-height: 1.5;
+        }
+
+        .pain-card-text {
+            font-size: .8rem;
+            color: var(--text-light);
+            line-height: 1.8;
+        }
+
+        /* --- features --- */
+        .feat-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1.5rem;
+        }
+
+        .feat-card {
+            text-align: center;
+            padding: 2rem 1.5rem;
+            background: #fff;
+            border: 1px solid var(--border);
+            border-radius: 12px;
+        }
+
+        .feat-icon {
+            width: 56px;
+            height: 56px;
+            margin: 0 auto 1rem;
+            background: var(--primary-light);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .feat-icon svg {
+            width: 26px;
+            height: 26px;
+            color: var(--primary);
+        }
+
+        .feat-card-title {
+            font-size: .9rem;
+            font-weight: 700;
+            margin-bottom: .5rem;
+        }
+
+        .feat-card-text {
+            font-size: .78rem;
+            color: var(--text-light);
+            line-height: 1.8;
+        }
+
+        /* --- why (differentiator) --- */
+        .why-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.2rem;
+        }
+
+        .why-item {
+            display: flex;
+            gap: 1rem;
+            align-items: flex-start;
+            padding: 1.2rem;
+            background: #fff;
+            border-radius: 10px;
+            border: 1px solid var(--border);
+        }
+
+        .why-num {
+            flex-shrink: 0;
+            width: 36px;
+            height: 36px;
+            background: var(--primary);
+            color: #fff;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: .8rem;
+            font-weight: 700;
+        }
+
+        .why-text-title {
+            font-size: .85rem;
+            font-weight: 700;
+            margin-bottom: .2rem;
+        }
+
+        .why-text-desc {
+            font-size: .75rem;
+            color: var(--text-light);
+            line-height: 1.7;
+        }
+
+        /* --- coach profile --- */
+        .coach-inner {
+            display: flex;
+            gap: 2.5rem;
+            align-items: center;
+            max-width: 720px;
+            margin: 0 auto;
+        }
+
+        .coach-img {
+            width: 140px;
+            height: 140px;
+            border-radius: 50%;
+            object-fit: cover;
+            flex-shrink: 0;
+            border: 4px solid var(--primary-light);
+            box-shadow: 0 4px 16px rgba(0,0,0,.08);
+        }
+
+        .coach-body { flex: 1; }
+
+        .coach-name {
+            font-family: 'Zen Maru Gothic', sans-serif;
+            font-size: 1.1rem;
+            font-weight: 700;
+            margin-bottom: .3rem;
+        }
+
+        .coach-role {
+            font-size: .75rem;
+            color: var(--text-light);
+            margin-bottom: 1rem;
+        }
+
+        .coach-bio {
+            font-size: .82rem;
+            color: #555;
+            line-height: 2;
+            margin-bottom: 1rem;
+        }
+
+        .coach-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: .4rem;
+        }
+
+        .coach-tags span {
+            padding: .2rem .6rem;
+            background: var(--primary-light);
+            border-radius: 4px;
+            font-size: .68rem;
+            color: var(--primary-dark);
+            font-weight: 500;
+        }
+
+        /* --- pricing --- */
+        .price-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1.2rem;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .price-card {
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            overflow: hidden;
+            background: #fff;
+            text-align: center;
+        }
+
+        .price-card.recommended {
+            border-color: var(--primary);
+            box-shadow: 0 4px 20px rgba(192,96,112,.15);
+            position: relative;
+        }
+
+        .price-card.recommended::before {
+            content: 'おすすめ';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            background: var(--primary);
+            color: #fff;
+            font-size: .68rem;
+            font-weight: 700;
+            padding: .3rem;
+        }
+
+        .price-card-head {
+            padding: 2rem 1rem 1rem;
+            background: var(--bg-warm);
+        }
+
+        .price-card.recommended .price-card-head {
+            padding-top: 2.8rem;
+        }
+
+        .price-card-name {
+            font-size: .85rem;
+            font-weight: 700;
+            margin-bottom: .3rem;
+        }
+
+        .price-card-target {
+            font-size: .7rem;
+            color: var(--text-light);
+            margin-bottom: .8rem;
+        }
+
+        .price-card-amount {
+            font-family: 'Zen Maru Gothic', sans-serif;
+            font-size: 1.8rem;
+            font-weight: 900;
+            color: var(--primary);
+        }
+
+        .price-card-amount small {
+            font-size: .7rem;
+            font-weight: 500;
+            color: var(--text-light);
+        }
+
+        .price-card-body {
+            padding: 1.2rem 1rem;
+        }
+
+        .price-card-body ul {
+            list-style: none;
+            text-align: left;
+        }
+
+        .price-card-body li {
+            font-size: .75rem;
+            padding: .3rem 0;
+            color: #555;
+            position: relative;
+            padding-left: 1.2rem;
+        }
+
+        .price-card-body li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: var(--primary);
+            font-weight: 700;
+        }
+
+        /* --- flow --- */
+        .flow-list {
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .flow-item {
+            display: flex;
+            gap: 1.2rem;
+            align-items: flex-start;
+            margin-bottom: 2rem;
+            position: relative;
+        }
+
+        .flow-item:not(:last-child)::after {
+            content: '';
+            position: absolute;
+            left: 19px;
+            top: 44px;
+            width: 2px;
+            height: calc(100% - 8px);
+            background: var(--border);
+        }
+
+        .flow-step {
+            flex-shrink: 0;
+            width: 40px;
+            height: 40px;
+            background: var(--primary);
+            color: #fff;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: .8rem;
+            font-weight: 700;
+            position: relative;
+            z-index: 1;
+        }
+
+        .flow-content {}
+
+        .flow-title {
+            font-size: .9rem;
+            font-weight: 700;
+            margin-bottom: .2rem;
+        }
+
+        .flow-text {
+            font-size: .78rem;
+            color: var(--text-light);
+            line-height: 1.8;
+        }
+
+        /* --- faq --- */
+        .faq-list {
+            max-width: 680px;
+            margin: 0 auto;
+        }
+
+        .faq-item {
+            border-bottom: 1px solid var(--border);
+            padding: 1.2rem 0;
+        }
+
+        .faq-q {
+            font-size: .88rem;
+            font-weight: 700;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .faq-q::before {
+            content: 'Q.';
+            color: var(--primary);
+            font-weight: 700;
+            margin-right: .5rem;
+            flex-shrink: 0;
+        }
+
+        .faq-q span { flex: 1; }
+
+        .faq-toggle {
+            width: 24px;
+            height: 24px;
+            flex-shrink: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--text-light);
+            transition: transform .2s;
+        }
+
+        .faq-item.open .faq-toggle { transform: rotate(180deg); }
+
+        .faq-a {
+            font-size: .8rem;
+            color: #666;
+            line-height: 1.9;
+            padding-top: .8rem;
+            padding-left: 1.5rem;
+            display: none;
+        }
+
+        .faq-item.open .faq-a { display: block; }
+
+        /* --- cta --- */
+        .cta-section {
+            padding: 5rem 0;
+            background: linear-gradient(135deg, var(--primary-light) 0%, var(--bg-warm) 100%);
+            text-align: center;
+        }
+
+        .cta-title {
+            font-family: 'Zen Maru Gothic', sans-serif;
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: .8rem;
+        }
+
+        .cta-desc {
+            font-size: .85rem;
+            color: var(--text-light);
+            margin-bottom: 2rem;
+        }
+
+        .cta-btn {
+            display: inline-block;
+            padding: 1rem 3rem;
+            font-size: .95rem;
+            font-weight: 700;
+            color: #fff;
+            background: var(--primary);
+            border-radius: 30px;
+            text-decoration: none;
+            transition: transform .2s, box-shadow .2s;
+            box-shadow: 0 4px 16px rgba(192,96,112,.3);
+        }
+
+        .cta-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 24px rgba(192,96,112,.4);
+        }
+
+        .cta-note {
+            font-size: .72rem;
+            color: var(--text-light);
+            margin-top: .8rem;
+        }
+
+        .cta-btns {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            align-items: center;
+            margin-bottom: .5rem;
+        }
+
+        .cta-btn-sub {
+            display: inline-block;
+            padding: .9rem 2.5rem;
+            font-size: .9rem;
+            font-weight: 700;
+            color: var(--primary);
+            background: #fff;
+            border: 2px solid var(--primary);
+            border-radius: 30px;
+            text-decoration: none;
+            transition: transform .2s, box-shadow .2s;
+        }
+
+        .cta-btn-sub:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 16px rgba(192,96,112,.15);
+        }
+
+        /* --- footer --- */
+        footer {
+            padding: 3rem 1.5rem;
+            text-align: center;
+            background: #fff;
+            border-top: 1px solid var(--border);
+        }
+
+        .footer-inner {
+            max-width: 960px;
+            margin: 0 auto;
+        }
+
+        .footer-brand {
+            font-family: 'Zen Maru Gothic', sans-serif;
+            font-size: .9rem;
+            font-weight: 700;
+            color: var(--primary);
+            margin-bottom: 1rem;
+        }
+
+        .footer-nav {
+            display: flex;
+            gap: 1.5rem;
+            justify-content: center;
+            margin-bottom: 1rem;
+        }
+
+        .footer-nav a {
+            font-size: .72rem;
+            color: #999;
+            text-decoration: none;
+            transition: color .2s;
+        }
+
+        .footer-nav a:hover { color: var(--primary); }
+
+        .footer-links {
+            font-size: .7rem;
+            color: #aaa;
+            margin-bottom: .8rem;
+        }
+
+        .footer-links a {
+            color: #999;
+            text-decoration: none;
+        }
+
+        .footer-links a:hover { color: var(--primary); }
+
+        .footer-copy {
+            font-size: .65rem;
+            color: #bbb;
+        }
+
+        /* --- responsive --- */
+        @media (max-width: 768px) {
+            .header-nav { display: none; }
+            .header-nav.open {
+                display: flex;
+                flex-direction: column;
+                position: fixed;
+                top: 56px; left: 0; right: 0;
+                background: #fff;
+                border-bottom: 1px solid var(--border);
+                padding: 1rem 1.5rem;
+                gap: 1rem;
+                z-index: 99;
+            }
+            .ham { display: block; }
+
+            .hero { padding: 3rem 0; }
+            .hero-title { font-size: 1.4rem; }
+
+            .pain-grid { grid-template-columns: 1fr; }
+            .feat-grid { grid-template-columns: 1fr; }
+            .why-grid { grid-template-columns: 1fr; }
+            .price-grid { grid-template-columns: 1fr; max-width: 320px; }
+
+            .coach-inner { flex-direction: column; text-align: center; }
+            .coach-img { width: 100px; height: 100px; }
+            .coach-tags { justify-content: center; }
+
+            .cta-btns { flex-direction: column; align-items: center; }
+            .footer-nav { flex-wrap: wrap; gap: 1rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <header class="header">
+        <div class="header-inner">
+            <a href="#" class="header-logo">ハナサク</a>
+            <button class="ham" aria-label="Menu" onclick="document.querySelector('.header-nav').classList.toggle('open')">
+                <span></span><span></span><span></span>
+            </button>
+            <nav class="header-nav">
+                <a href="#about">サービス紹介</a>
+                <a href="#features">特徴</a>
+                <a href="#coach">コーチ紹介</a>
+                <a href="#pricing">料金</a>
+                <a href="#faq">よくある質問</a>
+                <a href="https://calendar.app.google/u8SkpMApaMfaRoSx6" target="_blank" rel="noopener" class="header-cta">無料相談を予約</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- hero -->
+    <section class="hero">
+        <div class="container hero-inner">
+            <div class="hero-badge">福井の女子学生専門の就活伴走サービス</div>
+            <h1 class="hero-title">
+                「かわいいね」じゃなくて、<br>
+                <em>「あなたの強みはここだよ」</em><br>
+                と言ってくれる大人が欲しかった。
+            </h1>
+            <p class="hero-desc">
+                福井出身・東京在住の社外メンター経験者が、<br>
+                月1回のオンライン面談であなたの就活を伴走します。<br>
+                親御さんへの進捗レポート付き。
+            </p>
+            <a href="https://calendar.app.google/u8SkpMApaMfaRoSx6" target="_blank" rel="noopener" class="hero-cta">まずは無料で相談する</a>
+            <p class="hero-sub">初回面談は無料です。お気軽にどうぞ。</p>
+        </div>
+    </section>
+
+    <!-- pain points -->
+    <section class="section" id="about">
+        <div class="container">
+            <div class="section-label">Problem</div>
+            <h2 class="section-title">こんな悩み、ありませんか？</h2>
+            <p class="section-desc">就活の不安は、学生だけのものじゃない。</p>
+
+            <div class="pain-grid">
+                <div class="pain-card">
+                    <span class="pain-card-who student">学生さん</span>
+                    <div class="pain-card-title">面接で何を話せばいいかわからない</div>
+                    <div class="pain-card-text">自己PRや志望動機を考えても、自分の言葉にならない。キャリアセンターに行っても「もう少し笑顔で」としか言われなかった。</div>
+                </div>
+                <div class="pain-card">
+                    <span class="pain-card-who parent">親御さん</span>
+                    <div class="pain-card-title">娘の就活が心配だけど、何もできない</div>
+                    <div class="pain-card-text">LINEで聞いても「大丈夫」としか返ってこない。自分たちの時代と就活が違いすぎて、アドバイスもできない。</div>
+                </div>
+                <div class="pain-card">
+                    <span class="pain-card-who student">学生さん</span>
+                    <div class="pain-card-title">「結婚は？出産は？」にどう答えれば…</div>
+                    <div class="pain-card-text">面接で聞かれるかもしれない質問。でも誰にも相談できない。女の子だからこその悩みを、真剣に聞いてくれる人がいない。</div>
+                </div>
+                <div class="pain-card">
+                    <span class="pain-card-who parent">親御さん</span>
+                    <div class="pain-card-title">地元と東京、どちらを勧めるべき？</div>
+                    <div class="pain-card-text">娘には幸せになってほしい。でも「地元に残って」とも「東京に出て」とも言いづらい。第三者の視点がほしい。</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- features -->
+    <section class="section section-alt" id="features">
+        <div class="container">
+            <div class="section-label">Features</div>
+            <h2 class="section-title">ハナサクの3つの特徴</h2>
+            <p class="section-desc">就活塾でも、エージェントでもない。あなたの「伴走者」です。</p>
+
+            <div class="feat-grid">
+                <div class="feat-card">
+                    <div class="feat-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+                    </div>
+                    <div class="feat-card-title">月1回の1on1伴走</div>
+                    <div class="feat-card-text">オンラインで60分。自己分析から模擬面接まで、あなたのペースに合わせて一緒に進めます。就活の不安も、キャリアの悩みも、何でも話せる時間。</div>
+                </div>
+                <div class="feat-card">
+                    <div class="feat-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87"/><path d="M16 3.13a4 4 0 010 7.75"/></svg>
+                    </div>
+                    <div class="feat-card-title">親御さんへの月次レポート</div>
+                    <div class="feat-card-text">毎月、お子さんの成長と今後の計画をレポートでお届け。「何も教えてくれない」不安を解消し、親子の関係も守ります。</div>
+                </div>
+                <div class="feat-card">
+                    <div class="feat-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                    </div>
+                    <div class="feat-card-title">女の子の強みを言語化</div>
+                    <div class="feat-card-text">「もっと強気に」とは言いません。あなたらしい強みを一緒に見つけて、自分の言葉で語れるようになるまでサポートします。</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- why this service -->
+    <section class="section">
+        <div class="container">
+            <div class="section-label">Why Us</div>
+            <h2 class="section-title">他の就活サービスとの違い</h2>
+            <p class="section-desc">「福井 × 女子 × 親子 × プロメンター」は、ここだけ。</p>
+
+            <div class="why-grid">
+                <div class="why-item">
+                    <div class="why-num">1</div>
+                    <div>
+                        <div class="why-text-title">福井に完全特化</div>
+                        <div class="why-text-desc">コーチ自身が福井出身。地元の空気感、親の気持ち、方言まで理解しています。東京の就活事情も実体験で知っている強みがあります。</div>
+                    </div>
+                </div>
+                <div class="why-item">
+                    <div class="why-num">2</div>
+                    <div>
+                        <div class="why-text-title">女子学生専門</div>
+                        <div class="why-text-desc">面接での外見コメント、ライフプランへの圧、自己主張への抵抗感。女子就活生だからこその悩みに正面から向き合います。</div>
+                    </div>
+                </div>
+                <div class="why-item">
+                    <div class="why-num">3</div>
+                    <div>
+                        <div class="why-text-title">親御さんも安心設計</div>
+                        <div class="why-text-desc">月次レポートと三者面談で、お子さんの就活を「見える化」。塾のように進捗がわかるから、必要以上に干渉しなくて大丈夫。</div>
+                    </div>
+                </div>
+                <div class="why-item">
+                    <div class="why-num">4</div>
+                    <div>
+                        <div class="why-text-title">社外メンターのプロ</div>
+                        <div class="why-text-desc">企業の女性活躍推進で社外メンターを務めた実務経験者。素人のアドバイスではなく、体系的なメンタリング手法でサポートします。</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- coach -->
+    <section class="section section-alt" id="coach">
+        <div class="container">
+            <div class="section-label">Coach</div>
+            <h2 class="section-title" style="margin-bottom: 2.5rem;">コーチ紹介</h2>
+
+            <div class="coach-inner">
+                <img src="https://assets.st-note.com/production/uploads/images/163938797/profile_839eb2b4d99903cd1ef6c59025964b16.jpg" alt="EMKO" class="coach-img">
+                <div class="coach-body">
+                    <div class="coach-name">中村舞衣子（EMKO）</div>
+                    <div class="coach-role">ハナサク代表 / 社外メンター（ベネッセ with battons） / デジタルハリウッド大学大学院修了</div>
+                    <p class="coach-bio">
+                        福井県出身、高志高校卒。東京在住、2児の母。<br>
+                        働きながらデジタルハリウッド大学大学院を修了（2026年3月）。ベネッセのwith battonsで女性リーダーのコーチングに携わる中で、「キャリアの入口」である就活こそ支援が必要だと感じ、本サービスを立ち上げました。<br>
+                        地方から東京へ、結婚・出産を経てもキャリアを築いてきた経験を、次の世代に伝えたいと思っています。
+                    </p>
+                    <div class="coach-tags">
+                        <span>福井出身</span>
+                        <span>高志高校卒</span>
+                        <span>2児の母</span>
+                        <span>社外メンター（with battons）</span>
+                        <span>女性活躍推進</span>
+                        <span>DHU大学院修了</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- pricing -->
+    <section class="section" id="pricing">
+        <div class="container">
+            <div class="section-label">Pricing</div>
+            <h2 class="section-title">料金プラン</h2>
+            <p class="section-desc">塾1教科分の感覚で、プロのキャリア伴走を。</p>
+
+            <div class="price-grid">
+                <div class="price-card">
+                    <div class="price-card-head">
+                        <div class="price-card-name">スタートプラン</div>
+                        <div class="price-card-target">大学1〜2年生</div>
+                        <div class="price-card-amount">15,000<small>円/月（税込）</small></div>
+                    </div>
+                    <div class="price-card-body">
+                        <ul>
+                            <li>月1回オンライン面談（60分）</li>
+                            <li>キャリア探索ワーク</li>
+                            <li>LINEでの質問対応</li>
+                            <li>親御さんへの月次レポート</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="price-card recommended">
+                    <div class="price-card-head">
+                        <div class="price-card-name">レギュラープラン</div>
+                        <div class="price-card-target">大学3年前期</div>
+                        <div class="price-card-amount">20,000<small>円/月（税込）</small></div>
+                    </div>
+                    <div class="price-card-body">
+                        <ul>
+                            <li>月1回オンライン面談（60分）</li>
+                            <li>自己分析・強み発見ワーク</li>
+                            <li>ES添削（月2本まで）</li>
+                            <li>LINEでの質問対応</li>
+                            <li>親御さんへの月次レポート</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="price-card">
+                    <div class="price-card-head">
+                        <div class="price-card-name">本番プラン</div>
+                        <div class="price-card-target">大学3年冬〜4年</div>
+                        <div class="price-card-amount">30,000<small>円/月（税込）</small></div>
+                    </div>
+                    <div class="price-card-body">
+                        <ul>
+                            <li>月2回オンライン面談（60分）</li>
+                            <li>模擬面接・企業別対策</li>
+                            <li>ES添削（無制限）</li>
+                            <li>LINEでの質問対応</li>
+                            <li>親御さんへの月次レポート</li>
+                            <li>三者面談（四半期1回）</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- flow -->
+    <section class="section section-alt">
+        <div class="container">
+            <div class="section-label">Flow</div>
+            <h2 class="section-title">ご利用の流れ</h2>
+            <p class="section-desc">まずは無料相談から。無理な勧誘は一切しません。</p>
+
+            <div class="flow-list">
+                <div class="flow-item">
+                    <div class="flow-step">1</div>
+                    <div class="flow-content">
+                        <div class="flow-title">無料相談を予約</div>
+                        <div class="flow-text">LINEまたはInstagram DMからお気軽にご連絡ください。学生さんご本人でも、親御さんからでもOKです。</div>
+                    </div>
+                </div>
+                <div class="flow-item">
+                    <div class="flow-step">2</div>
+                    <div class="flow-content">
+                        <div class="flow-title">無料面談（30分）</div>
+                        <div class="flow-text">Zoomで今の状況やお悩みをお聞きします。サービスの説明もここで。合わないと思ったら、ここで終了でもまったく問題ありません。</div>
+                    </div>
+                </div>
+                <div class="flow-item">
+                    <div class="flow-step">3</div>
+                    <div class="flow-content">
+                        <div class="flow-title">プランを選んでスタート</div>
+                        <div class="flow-text">ご自身に合ったプランを選んで、伴走スタート。最初の1か月は合わなければ全額返金します。</div>
+                    </div>
+                </div>
+                <div class="flow-item">
+                    <div class="flow-step">4</div>
+                    <div class="flow-content">
+                        <div class="flow-title">月1回の面談 + 親御さんへレポート</div>
+                        <div class="flow-text">毎月の面談で一歩ずつ前進。親御さんには進捗と成長をレポートでお届け。内定まで一緒に走り抜けます。</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- faq -->
+    <section class="section" id="faq">
+        <div class="container">
+            <div class="section-label">FAQ</div>
+            <h2 class="section-title">よくある質問</h2>
+            <p class="section-desc"></p>
+
+            <div class="faq-list">
+                <div class="faq-item open">
+                    <div class="faq-q" onclick="this.parentElement.classList.toggle('open')">
+                        <span>福井県外の大学に通っていますが、利用できますか？</span>
+                        <div class="faq-toggle">▼</div>
+                    </div>
+                    <div class="faq-a">はい、福井県出身であれば県外の大学に通っている方もご利用いただけます。オンライン完結なので、全国どこからでも受講可能です。</div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-q" onclick="this.parentElement.classList.toggle('open')">
+                        <span>親に知られたくないことも相談できますか？</span>
+                        <div class="faq-toggle">▼</div>
+                    </div>
+                    <div class="faq-a">もちろんです。親御さんへのレポートに含める内容は、事前にご本人と合意します。ご本人の同意なしに情報を共有することはありません。安心して何でもお話しください。</div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-q" onclick="this.parentElement.classList.toggle('open')">
+                        <span>内定が取れなかったら返金してもらえますか？</span>
+                        <div class="faq-toggle">▼</div>
+                    </div>
+                    <div class="faq-a">内定保証制度は設けていません。ただし、初月の全額返金保証があります。本サービスは「内定を取る」だけでなく、「自分の言葉でキャリアを語れるようになる」ことを目指しています。</div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-q" onclick="this.parentElement.classList.toggle('open')">
+                        <span>親だけで相談することはできますか？</span>
+                        <div class="faq-toggle">▼</div>
+                    </div>
+                    <div class="faq-a">はい、親御さんだけでの無料相談も受け付けています。「娘に勧めたいけど、まず自分で話を聞きたい」という方も多いです。お気軽にご連絡ください。</div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-q" onclick="this.parentElement.classList.toggle('open')">
+                        <span>途中でプランを変更できますか？</span>
+                        <div class="faq-toggle">▼</div>
+                    </div>
+                    <div class="faq-a">はい、翌月からプラン変更が可能です。就活の時期に合わせて、スタートプランからレギュラー、本番プランへとステップアップしていく方が多いです。</div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-q" onclick="this.parentElement.classList.toggle('open')">
+                        <span>男子学生は利用できませんか？</span>
+                        <div class="faq-toggle">▼</div>
+                    </div>
+                    <div class="faq-a">現在は女子学生専門のサービスとして運営しています。女子学生ならではの悩みに特化することで、より質の高いサポートを提供するためです。</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- cta -->
+    <section class="cta-section" id="contact">
+        <div class="container">
+            <div class="cta-title">まずは、話してみませんか？</div>
+            <p class="cta-desc">
+                無料相談は30分。学生さんでも、親御さんでも。<br>
+                「こんなこと聞いていいのかな」くらいの気持ちで大丈夫です。
+            </p>
+            <div class="cta-btns">
+                <!--
+                    ★ 公開前に差し替え ★
+                    https://calendar.app.google/u8SkpMApaMfaRoSx6 → Googleカレンダーの予約スケジュールURL
+                    https://lin.ee/qURXYyS    → LINE公式アカウントの友だち追加URL
+                -->
+                <a href="https://calendar.app.google/u8SkpMApaMfaRoSx6" target="_blank" rel="noopener" class="cta-btn">無料相談を予約する</a>
+                <a href="https://lin.ee/qURXYyS" target="_blank" rel="noopener" class="cta-btn-sub">LINEで気軽に質問する</a>
+            </div>
+            <p class="cta-note">Googleカレンダーから空き日時を選ぶだけ。アカウント登録は不要です。</p>
+        </div>
+    </section>
+
+    <footer>
+        <div class="footer-inner">
+            <div class="footer-brand">ハナサク</div>
+            <nav class="footer-nav">
+                <a href="#about">サービス紹介</a>
+                <a href="#features">特徴</a>
+                <a href="#coach">コーチ紹介</a>
+                <a href="#pricing">料金</a>
+                <a href="#faq">よくある質問</a>
+            </nav>
+            <div class="footer-links">
+                <a href="privacy.html">プライバシーポリシー</a> ｜ <a href="tokushoho.html">特定商取引法に基づく表記</a>
+            </div>
+            <p class="footer-copy">&copy; 2026 ハナサク / EMKO</p>
+        </div>
+    </footer>
+
+    <script>
+        // hamburger menu close on link click
+        document.querySelectorAll('.header-nav a').forEach(a => {
+            a.addEventListener('click', () => document.querySelector('.header-nav').classList.remove('open'));
+        });
+    </script>
+</body>
+</html>
